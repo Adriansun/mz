@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div
+    h1 Välkommen till musikhistoria! ( 1 = man, 2 = kvinna, - = könlös  )
+
+    form(name="add-estimation", method="post")
+        div.input
+            span.label Artist namn:  
+            input(type="text", name="artistnamn")
+            input(type="submit", value="search")
+    br
+    br
+  
+    table(border='1' cellpadding = 10)
+      thead
+          tr
+            th #
+            th Namn
+            th Area
+            th kön / könlös
+            th startår
+          
+      tbody
+        each row, i in rows
+          tr
+            td= i+1
+            td= row.artistname
+            td= row.areaname
+            td= row.artistgender
+            td= row.yearstart
